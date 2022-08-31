@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css"/>
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+            <h1>Update By ID</h1>
+            <p>Mongoose Lab</p>
+
+        </div>
+        <h1>
+            <a type="button" class="btn btn-primary btn-lg" href="/">Home</a>
+        </h1>
+    
+        <form action="/updateparcel" method="POST">
+    
+            Parcel ID <input type="text"  name="id" /> </br>
+            Update Sender <input type="text"  name="newsender" /> </br>
+            Update Address <input type="number"  name="newaddress" /> </br>
+            Update Weight <input type="number"  name="newweight" /> </br>
+            Update Fragile <input type="text" name="newfragile" /> </br>
+            <input type="submit" value="Submit" /> </br>
+        </form>
+    </body>
+
+
+</html>

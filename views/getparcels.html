@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    </head>
+    <body>
+
+        <h1>
+            <a type="button" class="btn btn-primary btn-lg" href="/">Home</a>
+            <a type="button" class="btn btn-primary btn-lg" href="/getparcels">Show Parcels</a>
+            <a type="button" class="btn btn-primary btn-lg" href="/deleteparcel">Delete Parcels</a>
+            <a type="button" class="btn btn-primary btn-lg" href="/updateparcel">Update Parcels</a>
+        </h1>
+
+        <br />
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Sender</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Fragile</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tr>
+            <% for (let i=0;i<parcelDb.length;i++){ %>
+                <tr>
+                    <th scope="row"><%=i%></th>
+                    <td><%=parcelDb[i].sender %> </td>
+                    <td> <%=parcelDb[i].address %> </td>
+                    <td><%=parcelDb[i].weight %></td>
+                    <td><%=parcelDb[i].fragile %></td>
+                </tr>
+                <%}%>
+            </tbody>
+        
+        </table>
+
+    </body>
+</html>

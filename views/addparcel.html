@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css"/>
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    </head>
+    <body>
+
+        <h1>
+            <a type="button" class="btn btn-primary btn-lg" href="/">Home</a>
+        </h1>
+
+        <form action="/addparcel" method="post">
+        Sender<input type="text" name="sender"/>
+        Address<input type="text" name="address"/>
+        Weight<input type="number" name="weight"/>
+        Fragile<input type="text" name="fragile"/>
+        <input type="submit" value="Add parcel"/>
+        </form>
+    </body>
+</html>
