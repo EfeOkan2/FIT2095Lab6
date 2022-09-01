@@ -51,7 +51,7 @@ mongoose.connect(url, function(err){
             if (err) console.log("unable to save");
             else console.log("saved successfully");
         });
-        
+        res.redirect("/");
     
     
     });
@@ -77,6 +77,29 @@ app.post("/deleteparcel",function(req,res){
 
 });
 
+app.post("/deleteparcelbysender",function(req,res){
+    let sender = req.body.sender;
+    Parcel.deleteOne({sender:sender} ,function (err,docs){
+        if (err === null)
+        console.log("deleted");
+    });
+
+
+});
+
+app.post("/deleteparcelbyfragile",function(req,res){
+    let fragile = req.body.fragile;
+    Parcel.deleteOne({fragile:fragile} ,function (err,docs){
+        if (err === null)
+        console.log("deleted");
+    });
+
+
+});
+
+
+
+
 app.get("/updateparcel",function(req,res){
     res.sendFile(path.join(__dirname,"views/updateparcel.html"));
 
@@ -85,7 +108,7 @@ app.get("/updateparcel",function(req,res){
 app.post("/updateparcel",function(req,res){
     let parcelDetails = req.body;
     let id = req.body.id
-    let filter = {_id:mongodb.ObjectId(id)};
+    let filter = id;
     let theUpdate ={
         $set: {
             sender: parcelDetails.newsender,
@@ -94,8 +117,12 @@ app.post("/updateparcel",function(req,res){
             fragile: parcelDetails.newfragile,
         },
     };
-    Parcel.findByIdAndUpdate(filter, theUpdate)
-    
+    Parcel.findByIdAndUpdate(id, theUpdate ,function (err,docs){
+        if (err === null)
+        console.log("updated");
+    });
+    res.redirect("/");
+
 
 });
 
